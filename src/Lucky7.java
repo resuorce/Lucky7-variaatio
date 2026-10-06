@@ -6,10 +6,32 @@ public class Lucky7{
         
         Random random = new Random();
         Scanner scanner = new Scanner (System.in);
+        Scanner in = new Scanner (System.in);
 
         System.out.println("How much money do you want to play with?");
         int money = scanner.nextInt();
         scanner.nextLine();
+        //Kysytään alkusumma, kunnes käyttäjä antaa positiivisen kokonaisluvun
+        int money = 0;
+        while (money <= 0)
+        {
+            System.out.println("How much money do you want to play with?");
+
+            if (in.hasNextInt())
+            {
+                money = in.nextInt();
+                if (money <= 0)
+                {
+                    System.out.println("The amount must be greater than 0.");
+                }
+            }
+            else
+            {
+                System.out.println("Please enter a whole number.");
+            }
+            in.nextLine();
+        }
+     
 
         boolean playAgain = true;
 
@@ -40,6 +62,7 @@ public class Lucky7{
                 System.out.println("Would you like to play again? Press Enter to play again, or type anything else to exit.");
                 
                 String answer = scanner.nextLine();
+                String answer = in.nextLine();
 
                 if (!answer.isEmpty())
                 {
