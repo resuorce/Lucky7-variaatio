@@ -2,6 +2,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Lucky7{
+public class Lucky7 {
+
+    //Pelin asetukset
     public static void main(String[] args) throws Exception {
         
         Random random = new Random();
@@ -38,17 +41,21 @@ public class Lucky7{
         while (playAgain && money > 0)
         {
             money--;
+            //Panos maksetaan kierokseen alussa
+            money -= BET;
 
+            //Arvotaan kolme satunnaista numeroa väliltä 1-10
             int number1 = random.nextInt(10) + 1;
             int number2 = random.nextInt(10) + 1;
             int number3 = random.nextInt(10) + 1;
 
             System.out.println(number1 + " " + number2 + " " + number3);
 
+            //Voitto, jos vähintään yksi numero on 7
             if (number1 == 7 || number2 == 7 || number3 == 7)
             {
-                System.out.println("You won 5 euros!");
-                money += 5;
+                System.out.println("You won " + (PRIZE - BET) + " euros!");
+                money += PRIZE;
             }
             else
             {
